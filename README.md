@@ -14,13 +14,9 @@ future integrations through a unified and extensible foundation.
 
 ## Resources
 
--   [![📘 **Documentation & Wiki**](https://img.shields.io/github/license/NebulaCli/Nova.svg)](https://github.com/NebulaCli/Nova/blob/main/LICENSE)
+- 📘 **Documentation & Wiki** ***Soon!***
 
-- 📦 **Releases**  
-  https://github.com/NebulaCli/Nova/releases
-
-- 💬 **Discord**  
-  https://yourdomain.dev/discord
+- [📦 **Releases**  ](https://github.com/NebulaCli/Nova/releases)
 
 ---
 
