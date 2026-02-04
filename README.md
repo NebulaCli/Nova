@@ -1,4 +1,3 @@
-````md
 ![](https://i.imgur.com/7W2qMIx.png)
 
 # Nova
@@ -81,22 +80,3 @@ If you have ideas, feedback, or feature suggestions, feel free to open an issue 
 
 Nova is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for more information.
-
-```
-
----
-
-### Why this is correct now
-- ✅ Matches the **Apollo README style**
-- ✅ Matches the **actual Nova repo reality**
-- ❌ No fake wiki links
-- ❌ No Maven / NuGet / plugins / platforms
-- ❌ No internal structure exposure
-
-If you want next:
-- tighten the wording even more
-- rename Nova → **NovaAPI** or **Nova Framework** everywhere
-- add a **one-liner tagline** under the title like Lunar does
-
-Just say the word 🌌
-```
