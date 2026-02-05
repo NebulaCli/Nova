@@ -5,7 +5,7 @@
   **The ultimate backend engine for Nebula Client**
 
   [![Status](https://img.shields.io/badge/Status-Operational-success?style=for-the-badge&logo=checkmarx)](https://github.com/NebulaCli/Nova)
-  [![Version](https://img.shields.io/badge/Version-1.0.0--PROXIMA-blueviolet?style=for-the-badge&logo=semver)](https://github.com/NebulaCli/Nova)
+  [![Version](https://img.shields.io/badge/Version-1.2--blueviolet?style=for-the-badge&logo=semver)](https://github.com/NebulaCli/Nova)
   [![Framework](https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=.net)](https://dotnet.microsoft.com/)
   [![Community](https://img.shields.io/discord/000000000000000000?logo=discord&label=Community&color=7289DA&style=for-the-badge)](https://discord.gg/JFxXDGxz)
 </div>
