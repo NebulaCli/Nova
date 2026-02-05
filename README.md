@@ -1,77 +1,88 @@
-![](https://i.imgur.com/7W2qMIx.png)
+<div align="center">
+  <img src="https://i.imgur.com/7W2qMIx.png" width="800" alt="Nova API Logo">
 
-# Nova
-[![Discord](https://img.shields.io/discord/000000000000000000?logo=discord&label=discord)](https://discord.gg/JFxXDGxz)
-[![Latest Commit](https://img.shields.io/github/last-commit/NebulaCli/Nova.svg)](https://github.com/NebulaCli/Nova/commits/main)
-[![License](https://img.shields.io/github/license/NebulaCli/Nova.svg)](https://github.com/NebulaCli/Nova/blob/main/LICENSE)
+  # ✨ Nova API ✨
+  **The ultimate backend engine for Nebula Client**
 
-**Nova** is the next-generation **Nebula Client Framework**.
-
-Nova provides the core systems used by Nebula Client, enabling modular features, services, and
-future integrations through a unified and extensible foundation.
-
----
-
-## Resources
-
-- 📘 **Documentation & Wiki** ***Soon!***
-
-- [📦 **Releases**  ](https://github.com/NebulaCli/Nova/releases)
+  [![Status](https://img.shields.io/badge/Status-Operational-success?style=for-the-badge&logo=checkmarx)](https://github.com/NebulaCli/Nova)
+  [![Version](https://img.shields.io/badge/Version-1.0.0--PROXIMA-blueviolet?style=for-the-badge&logo=semver)](https://github.com/NebulaCli/Nova)
+  [![Framework](https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=.net)](https://dotnet.microsoft.com/)
+  [![Community](https://img.shields.io/discord/000000000000000000?logo=discord&label=Community&color=7289DA&style=for-the-badge)](https://discord.gg/JFxXDGxz)
+</div>
 
 ---
 
-## Integration
+## 🌌 Introduction
+**Nova API** is the dedicated, high-performance API for the **Nebula Client** Minecraft experience. It is the central hub that connects the client to our global infrastructure, providing real-time data, security, and social features.
 
-Nova is designed to act as the **core framework** behind Nebula Client.
-
-It centralizes shared logic and systems used across the client, making it easier to build,
-maintain, and extend functionality over time.
-
-Developers can interact with Nova to build:
-- Client features
-- Mods and extensions
-- Internal services
-- Future external integrations
-
-More detailed integration documentation will be available as the framework evolves.
+> [!IMPORTANT]
+> This API is **powered by the Nebula Client Team** and is designed specifically to handle the intensive requirements of a modern Minecraft PvP client.
 
 ---
 
-## Examples
+## 💎 Core Ecosystem
+Nova is composed of several high-level services that work in harmony to provide a premium experience:
 
-Example usage and reference implementations will be added in future updates.
-
-These examples will demonstrate how Nova is used internally by Nebula Client and how developers
-can build on top of its systems.
-
----
-
-## Building
-
-Nova is written in **C# (.NET)**.
-
-### Requirements
-- .NET SDK
-- Git
-
-### Build
-
-```sh
-dotnet build
-````
+- 👮 **Security & HWID**: Sophisticated hardware identification and protection systems to ensure a fair gaming environment.
+- 🏆 **Global Leaderboards**: Real-time tracking of player performance and global rankings.
+- 👕 **Premium Cosmetics**: Integration for capes, wings, and other exclusive visual enhancements.
+- 🤝 **Social Hub**: Friends systems, private messaging, and real-time chat powered by our dedicated backend.
+- 🔐 **Unified Auth**: Secure, streamlined authentication leveraging modern standards.
+- 📊 **Insightful Analytics**: Deep integration for player statistics and client performance monitoring.
+- 📂 **Asset Management**: Dynamic handling of Minecraft versions, mods, and client updates.
 
 ---
 
-## Contributing
+## 🚀 Technical Quick Start
 
-Nova is under active development.
+### Implementation
+Nova is designed as a modular service-based architecture. You can interact with all systems via the `NovaCore` singleton.
 
-Contributions are welcome via pull requests and issues.
-If you have ideas, feedback, or feature suggestions, feel free to open an issue or join the Discord.
+```csharp
+using NovaAPI.Core;
+
+// Access the global singleton
+var nova = NovaCore.Instance;
+
+// Check backend health
+var status = await nova.GetSystemStatusAsync();
+if (status.Status == "Operational") {
+    Console.WriteLine($"Connected to Nebula Cloud | {status.OnlinePlayers} Players Online");
+}
+
+// Fetch available leaderboard data
+var topPlayers = await nova.Leaderboard.GetGlobalLeaderboardAsync();
+```
+
+### Build Requirements
+- **Runtime**: .NET 9.0 Cross-platform
+- **Database**: PostgreSQL (Npgsql)
+- **Library**: CmlLib.Core (Launcher Integration)
 
 ---
 
-## License
+## 🏗️ Architecture
+```text
+NovaAPI/
+├── Core/           # Central Singleton & Initialization
+├── Security/       # Anti-Cheat & HWID Generation
+├── Leaderboard/    # Global Ranking Services
+├── Cosmetics/      # Cape & Wings Management
+├── Authentication/ # Secure Session Handling
+├── News/           # Global Client News Feeds
+└── Player/         # Local & Remote Player Data
+```
 
-Nova is licensed under the **MIT License**.
-See [LICENSE](LICENSE) for more information.
+---
+
+## 🛡️ License & Contributing
+Nova is an internal project **powered by Nebula Client**. While the API logic is open for review, many of the underlying backend services are proprietary.
+
+- **Found a bug?** Open an [Issue](https://github.com/NebulaCli/Nova/issues).
+- **Want to contribute?** Submit a [Pull Request](https://github.com/NebulaCli/Nova/pulls).
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by the **Nebula Team**</sub>
+</div>

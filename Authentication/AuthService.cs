@@ -99,12 +99,13 @@ namespace NovaAPI.Authentication
 
                     _currentSession = new NovaSession
                     {
-                        Username = username,
+                        Username = SanitizeUsername(username), // Ensure Minecraft-compatible name
                         UserType = "discord",
                         DiscordId = userId,
                         AccessToken = accessToken,
                         LoggedInAt = DateTime.Now,
-                        AvatarUrl = avatarUrl
+                        AvatarUrl = avatarUrl,
+                        UUID = GenerateStableGuid(userId).Replace("-", "")
                     };
 
                     return _currentSession;
@@ -120,6 +121,18 @@ namespace NovaAPI.Authentication
         public string GetDiscordAuthUrl()
         {
             return $"https://discord.com/oauth2/authorize?client_id={DiscordClientId}&response_type=code&redirect_uri={System.Net.WebUtility.UrlEncode(DiscordRedirectUri)}&scope=identify+guilds+email";
+        }
+
+        public async Task<Newtonsoft.Json.Linq.JArray> FetchDiscordGuildsAsync(string accessToken)
+        {
+            using (var client = new System.Net.Http.HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+                var response = await client.GetAsync("https://discord.com/api/users/@me/guilds");
+                var json = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode) return new Newtonsoft.Json.Linq.JArray();
+                return Newtonsoft.Json.Linq.JArray.Parse(json);
+            }
         }
 
         private NovaSession CreateDemoSession(string name = "Nebula_Dev")
@@ -152,6 +165,23 @@ namespace NovaAPI.Authentication
             catch
             {
                 return null;
+            }
+        }
+
+        private string SanitizeUsername(string name)
+        {
+            // Minecraft only allows alphanumeric and underscores
+            string sanitized = System.Text.RegularExpressions.Regex.Replace(name, @"[^a-zA-Z0-9_]", "");
+            if (string.IsNullOrEmpty(sanitized)) return "NebulaUser";
+            return sanitized.Length > 16 ? sanitized.Substring(0, 16) : sanitized;
+        }
+
+        private string GenerateStableGuid(string input)
+        {
+            using (var md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] hash = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(input));
+                return new Guid(hash).ToString();
             }
         }
 

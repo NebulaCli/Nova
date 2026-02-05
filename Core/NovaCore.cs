@@ -5,6 +5,10 @@ using NovaAPI.Security;
 using NovaAPI.Mods;
 using NovaAPI.Analytics;
 using NovaAPI.Models;
+using NovaAPI.Cosmetics;
+using NovaAPI.Friends;
+using NovaAPI.Player;
+using NovaAPI.Chat;
 using System.Threading.Tasks;
 
 namespace NovaAPI.Core
@@ -23,6 +27,10 @@ namespace NovaAPI.Core
         public NewsService News { get; }
         public ModService Mods { get; }
         public AnalyticsService Analytics { get; }
+        public CosmeticsService Cosmetics { get; }
+        public FriendsService Friends { get; }
+        public PlayerService Player { get; }
+        public ChatService Chat { get; }
 
         private NovaCore()
         {
@@ -31,6 +39,10 @@ namespace NovaAPI.Core
             News = new NewsService();
             Mods = new ModService();
             Analytics = new AnalyticsService();
+            Cosmetics = new CosmeticsService();
+            Friends = new FriendsService();
+            Player = new PlayerService();
+            Chat = new ChatService();
         }
 
         public string GetApiVersion() => "1.0.0-PROXIMA";
